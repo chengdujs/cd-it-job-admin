@@ -23,6 +23,7 @@ module.exports = webpackMerge(baseConfig, {
     port: 12346,
     historyApiFallback: true,
     hot: true,
-    open: true
+    open: true,
+    noInfo: true
   }
 });

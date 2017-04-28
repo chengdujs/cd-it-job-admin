@@ -25,7 +25,10 @@
   "homepage": "https://github.com/chengdujs/cd-it-job-admin#readme",
   "dependencies": {
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
