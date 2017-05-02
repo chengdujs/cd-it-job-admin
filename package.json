@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/chengdujs/cd-it-job-admin#readme",
   "dependencies": {
+    "antd": "^2.9.3",
+    "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
@@ -33,6 +35,7 @@
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
+    "babel-plugin-import": "^1.1.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",

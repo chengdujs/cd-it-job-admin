@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import {
@@ -7,7 +7,6 @@ import {
 } from './pages';
 
 export class App extends Component {
-
   render() {
     return (
       <Router>

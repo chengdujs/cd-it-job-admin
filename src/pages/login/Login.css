@@ -1,0 +1,15 @@
+.login-form {
+  margin: 200px auto 0 auto;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+}
+
+.login-form .login-btn {
+  width: 100%;
+}
+
+.login-form .login-forgot {
+  float: right;
+}
