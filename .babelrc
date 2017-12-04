@@ -1,12 +1,20 @@
 {
   "presets": [
     [
-      "es2015",
+      "env",
       {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "safari >= 7"
+          ]
+        },
         "modules": false
       }
     ],
-    "react"
+    "stage-2",
+    "react",
+    "react-optimize"
   ],
   "plugins": [
     "transform-object-rest-spread",

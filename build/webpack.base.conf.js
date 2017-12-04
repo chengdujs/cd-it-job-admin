@@ -5,38 +5,41 @@ const util = require('./util');
 
 module.exports = {
   entry: {
-    app: util.root('src/main'),
-    vendor: [
-      'react',
-      'react-dom'
-    ]
+    vendor: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux']
   },
-  stats: 'minimal',
   output: {
     path: util.root('dist'),
-    filename: '[name].js',
-    chunkFilename: '[id].chunk.js'
+    publicPath: '',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js'
   },
   resolve: {
-    extensions: ['.js'],
-    alias: {}
+    extensions: ['.jsx', '.js']
   },
   module: {
     rules: [
-      { test: /\.js$/, use: ['babel-loader?cacheDirectory=true'], exclude: /node_modules/ },
-      { test: /\.html$/, use: 'html-loader' },
-      { test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file-loader?name=assets/[name].[hash].[ext]' },
-      { test: /\.css$/, use: ExtractTextPlugin.extract({ use: 'css-loader' }) },
-      { test: /\.styl$/, use: ExtractTextPlugin.extract({ use: 'css-loader!stylus-loader' }) }
+      { test: /\.jsx?$/, exclude: /node_modules/, use: ['babel-loader'] },
+      { test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file-loader?name=assets/[name].[hash].[ext]' }
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor']
-    }),
-    new ExtractTextPlugin('[name].css'),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
-      template: util.root('src/index.html')
-    })
+      template: util.root('index.html'),
+      showErrors: true,
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['vendor'],
+      minChunks: function (module) {
+        return module.context && module.context.indexOf('node_modules') !== -1;
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      minChunks: Infinity
+    }),
+    new ExtractTextPlugin({ filename: '[name].[hash].css', disable: false, allChunks: true })
   ]
 };
