@@ -17,17 +17,8 @@
     "react-optimize"
   ],
   "plugins": [
-    "transform-object-rest-spread",
-    "react-hot-loader/babel",
-    [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": "css"
-      }
-    ]
-  ],
-  "ignore": [
-    "node_modules"
+    "transform-runtime",
+    "transform-decorators-legacy",
+    "react-hot-loader/babel"
   ]
 }
